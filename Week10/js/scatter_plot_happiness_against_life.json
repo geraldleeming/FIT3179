@@ -1,0 +1,152 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Happiness per Country (2015)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Week10/data/2015.csv"
+  },
+  "params": [
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Australia and New Zealand",
+          "Central and Eastern Europe ",
+          "Eastern Asia",
+          "Latin America and Caribbean ",
+          "Middle East and Northern Africa",
+          "North America",
+          "Southeastern Asia",
+          "Southern Asia",
+          "Sub-Saharan Africa",
+          "Western Europe"
+        ],
+        "labels": [
+          "Show All",
+          "Australia and New Zealand",
+          "Central and Eastern Europe ",
+          "Eastern Asia",
+          "Latin America and Caribbean ",
+          "Middle East and Northern Africa",
+          "North America",
+          "Southeastern Asia",
+          "Southern Asia",
+          "Sub-Saharan Africa",
+          "Western Europe"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Continent_selection == null || datum.Region == Continent_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Happiness Score",
+      "type": "quantitative",
+      "title": "Happiness Score",
+      "axis": {"tickCount": 7},
+      "scale": {"domain": [2, 8]}
+    },
+    "y": {
+      "field": "Health (Life Expectancy)",
+      "type": "quantitative",
+      "axis": {"tickCount": 6},
+      "scale": {"domain": [0, 1.2]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Australia and New Zealand",
+              "Latin America and Caribbean ",
+              "North America",
+              "Eastern Asia",
+              "Southeastern Asia",
+              "Southern Asia",
+              "Sub-Saharan Africa",
+              "Middle East and Northern Africa",
+              "Central and Eastern Europe ",
+              "Western Europe"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#984ea3",
+              "#ff7f00",
+              "#ff7f00",
+              "#ff7f00",
+              "#377eb8",
+              "#377eb8",
+              "#00cc66",
+              "#00cc66"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Happiness Score", "type": "quantitative", "format": ","},
+          {
+            "field": "Health (Life Expectancy)",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Malaysia' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'Guinea' || datum['Country'] == 'United States'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Happiness Score", "type": "quantitative", "format": ","},
+          {
+            "field": "Health (Life Expectancy)",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
