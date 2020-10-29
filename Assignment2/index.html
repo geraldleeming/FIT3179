@@ -123,8 +123,8 @@
    
 <script type="text/javascript">
   var specVis1 = "js/choropleth_map_asgn2.json";
-  var specVis2= "js/scatterplot_happy_against_health.json";
- // var specVis3 = "js/choropleth_map_asgn2.json";
+  var specVis2= "";
+  var specVis3 = "js/scatterplot_happy_against_health.json";
 //  var specVis4 = "js/choropleth_map_asgn2.json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
@@ -135,9 +135,9 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-//  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  //}).catch(console.error);
+  }).catch(console.error);
 
  // vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
