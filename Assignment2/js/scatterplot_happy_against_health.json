@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
-  "height": 300,
+  "width": 600,
+  "height": 400,
   "title": "Happiness per Country (2015)",
   "data": {
     "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/2015.csv"
