@@ -1,0 +1,14 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "How the economy affects Happiness ?",
+  "description": "Google's stock price over time.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/2015.csv"
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Happiness Score", "type": "quantitative"},
+    "y": {"field": "Economy (GDP per Capita)", "type": "quantitative"}
+  },
+  "config": {}
+}
