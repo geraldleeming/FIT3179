@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "World Happiness Index in 2015",
-  "width": 800,
-  "height": 600,
+  "width": 500,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179Week9/main/ne_110m.json",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
