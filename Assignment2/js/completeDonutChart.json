@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 300,
+  "title": {
+    "text": "Donut Chart of Happiest Region from 2015 to 2019 ",
+    "dy": -30
+  },
+  "description": "A simple donut chart to show where the top 10 happiest countries come from (region) in 2015 to 2019.",
+  "padding": {"top": 24, "right": 24, "bottom": 24, "left": 24},
+  "data": {
+    "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/top_ten_happiest_country_with_region_2015_to_2019.csv"
+  },
+  "transform": [
+    {
+      "window": [{"op": "count", "field": "Region", "as": "TotalRegion"}],
+      "frame": [null, null]
+    },
+    {"calculate": "(36/datum.TotalRegion)*100", "as": "Percentage of chart (%)"}
+  ],
+  "encoding": {
+    "theta": {"aggregate": "count", "field": "Region", "type": "quantitative"},
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region / Continent"
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal"},
+      {
+        "field": "Percentage of chart (%)",
+        "type": "quantitative",
+        "format": ".1f"
+      }
+    ]
+  },
+  "view": {"stroke": null},
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 60}},
+    {
+      "mark": {"type": "text", "radius": 0},
+      "encoding": {
+        "text": {"value": "Percentage of Regions"},
+        "color": {"value": "black"},
+        "tooltip": null
+      }
+    }
+  ],
+  "config": {}
+}

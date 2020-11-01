@@ -1,0 +1,28 @@
+{
+  "height": {"step": 45},
+  "width": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/top_five_2015.csv"
+  },
+  "title": "Bar Graph of Top 5 Happiest Countries in 2015 ",
+  "padding": {"top": 24, "right": 24, "bottom": 24, "left": 24},
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {"field": "Country", "sort": ""},
+        "x": {
+          "field": "Happiness Rank",
+          "type": "quantitative",
+          "title": "Happness Rank"
+        },
+        "color": {"field": "Country", "type": "nominal", "legend": null},
+        "tooltip": [
+          {"field": "Country"},
+          {"field": "Happiness Score", "format": ".2f"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}

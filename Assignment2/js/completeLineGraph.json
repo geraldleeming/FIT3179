@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 400,
+  "title": "Economy (GDP per Capita) against Happiness Score",
+  "data": {
+    "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/2015.csv"
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "filled": false},
+      "encoding": {
+        "x": {"field": "Economy (GDP per Capita)", "type": "quantitative"},
+        "y": {
+          "field": "Happiness Score",
+          "type": "quantitative",
+          "scale": {"type": "linear", "domain": [2, 8]}
+        }
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "firebrick"},
+      "transform": [
+        {"regression": "Happiness Score", "on": "Economy (GDP per Capita)"}
+      ],
+      "encoding": {
+        "x": {"field": "Economy (GDP per Capita)", "type": "quantitative"},
+        "y": {"field": "Happiness Score", "type": "quantitative"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "regression": "Happiness Score",
+          "on": "Economy (GDP per Capita)",
+          "params": true
+        },
+        {"calculate": "'R²: '+format(datum.rSquared, '.2f')", "as": "R2"}
+      ],
+      "mark": {
+        "type": "text",
+        "color": "firebrick",
+        "x": "width",
+        "align": "right",
+        "y": -5
+      },
+      "encoding": {"text": {"type": "nominal", "field": "R2"}}
+    }
+  ],
+  "config": {}
+}

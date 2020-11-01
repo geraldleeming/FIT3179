@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/malaysia_australia_usa_indonesia_finland_happiness_score.csv"
+  },
+  "title": "Slope Chart of Happiness Score Over Time.",
+  "description": "Slope chart shows the happiness score over time between these 5 countries, Malaysia, Australia, Indonesia, Finland, United States.",
+  "layer": [
+    {
+      "mark": "line",
+      "width": {"step": 50},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "scale": {"padding": 0.5}},
+        "y": {
+          "field": "Happiness Score",
+          "type": "quantitative",
+          "axis": {"tickCount": 6},
+          "scale": {"type": "linear", "domain": [4, 8]}
+        },
+        "color": {"field": "Country", "type": "nominal"},
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Happiness Score", "type": "quantitative", "format": ".2f"},
+          {"field": "Year", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Happiness Score", "type": "quantitative"},
+        "color": {
+          "condition": {
+            "test": "datum['Year'] == 2015 || datum['Year'] == 2019 ",
+            "value": "black"
+          },
+          "value": ""
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Happiness Score", "type": "quantitative", "format": ".2f"},
+          {"field": "Year", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum.Country == 'Malaysia' && datum.Year == 2019",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {}
+}
