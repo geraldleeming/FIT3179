@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 400,
   "height": 400,
+  "background": "#FFF8DC",
   "title": "Economy (GDP per Capita) against Happiness Score",
   "data": {
     "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/2015.csv"
