@@ -120,10 +120,17 @@
   </div> <!-- end page -->
    
 <script type="text/javascript">
-  var specVis1 = "js/choropleth_map_asgn2.json";
-  var specVis2= "js/scatterplot_happy_against_health.json";
-  var specVis3 = "js/line_happy_against_gdp.json";
-//  var specVis4 = "js/choropleth_map_asgn2.json";
+
+  
+  var specVis1 = "js/completeWorldHappiness.json";
+  var specVis2 = "js/completeScatterplotHealth.json";
+  var specVis3 = "js/completeLineGraph.json";
+  
+ // var specVis4 = "js/completeBarChart.json";
+ // var specVis5 = "js/completeDonutChart.json";
+ // var specVis6 = "js/completeScatterplotGenerosity.json";
+  //var specVis7 = "js/completeSlopeChart.json";
+  
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -140,6 +147,18 @@
  // vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 //  }).catch(console.error);
+  
+  //vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+//  }).catch(console.error);
+  
+ // vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+//  }).catch(console.error);
+  
+ //  vegaEmbed('#vis7', specVis7, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+ // }).catch(console.error);
   
   
 </script>
