@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "World Happiness Index in 2015",
-  "width": 500,
-  "height": 500,
+  "width": 400,
+  "height": 400,
   "background": "#FFF8DC",
   "data": {
     "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179Week9/main/ne_110m.json",
