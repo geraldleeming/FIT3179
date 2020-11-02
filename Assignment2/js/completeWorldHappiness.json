@@ -3,6 +3,7 @@
   "title": "World Happiness Index in 2015",
   "width": 500,
   "height": 500,
+  "background": "#FFF8DC",
   "data": {
     "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179Week9/main/ne_110m.json",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
