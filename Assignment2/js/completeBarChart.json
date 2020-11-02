@@ -1,6 +1,7 @@
 {
   "height": {"step": 45},
   "width": 400,
+  "background": "#FFF8DC",
   "data": {
     "url": "https://raw.githubusercontent.com/geraldleeming/FIT3179/main/Assignment2/data/top_five_2015.csv"
   },
